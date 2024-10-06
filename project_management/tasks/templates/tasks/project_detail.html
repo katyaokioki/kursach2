@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ project.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>{{ project.name }}</h1>
+
+    <h2>Задачи:</h2>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.title }}
+                <form method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="task_id" value="{{ task.id }}">
+                    <button type="submit" class="button" name="delete_task">Удалить</button>
+                </form>
+                <form method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="task_id" value="{{ task.id }}">
+                    <input type="text" name="title" value="{{ task.title }}">
+                    <button type="submit" name="edit_task" class="button">Редактировать</button>
+                </form>
+            </li>
+            <a href="{% url 'task_comments' task.id %}" class="button1">Смотреть комментарии</a>
+        {% empty %}
+            <li>Нет задач для этого проекта.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Добавить задачу:</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="add_task" class="button">Добавить</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 20px;
+}
+
+h1 {
+  color: #343a40;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff; /* Цвет фона */
+  border: none;
+  border-radius: 5px; /* Скругление углов */
+  text-decoration: none; /* Убираем подчеркивание */
+  text-align: center;
+  transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.button:hover {
+  background-color: #0056b3; /* Цвет фона при наведении */
+}
+
